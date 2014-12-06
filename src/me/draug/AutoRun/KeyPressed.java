@@ -10,6 +10,6 @@ import java.awt.event.KeyEvent;
 
 public class KeyPressed {
 
-    boolean isOn = Toolkit.getDefaultToolkit().getLockingKeyState(KeyEvent.VK_CAPS_LOCK);
+    boolean isOn = Toolkit.getDefaultToolkit().getLockingKeyState(KeyEvent.VK_NUM_LOCK);
 
 }
