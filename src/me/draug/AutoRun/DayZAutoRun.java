@@ -23,7 +23,8 @@ public class DayZAutoRun {
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         panel = new JPanel();
-        button = new JButton("Press me!");
+        button = new JButton("Not running");
+        button.setBackground(new Color(1, 0, 0));
 
         frame.setContentPane(panel);
         panel.add(button);
@@ -38,6 +39,8 @@ public class DayZAutoRun {
                 if (programRunning) {
                     programRunning = false;
                     thread.stop();
+                    button.setBackground(new Color(255, 0, 0));
+                    button.setText("Not running");
                     return;
                 }
 
@@ -46,8 +49,13 @@ public class DayZAutoRun {
                 } catch (InterruptedException e1) {
                     e1.printStackTrace();
                 }
+
+                button.setText("Running");
+                button.setBackground(new Color(0, 255, 0));
+
                 programRunning = true;
                 thread = new Thread(DayZAutoRun.this::run);
+                thread.start();
             }
         });
     }
