@@ -7,7 +7,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 
 public class DayZAutoRun {
-
     private JFrame frame;
     private JPanel panel;
     private JButton button;
@@ -38,7 +37,7 @@ public class DayZAutoRun {
             public void actionPerformed(ActionEvent e) {
                 if (programRunning) {
                     programRunning = false;
-                    thread.stop();
+                    thread.interrupt();
                     button.setBackground(new Color(255, 0, 0));
                     button.setText("Not running");
                     return;
@@ -69,7 +68,6 @@ public class DayZAutoRun {
                 pressed = true;
             }
         }
-
         pressed = false;
     }
 }
